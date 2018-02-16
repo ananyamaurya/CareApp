@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#25B6D2"
+    tools:context="com.example.ananya.careapp.Splash">
+
+
+    <ImageView
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:layout_marginTop="115dip"
+        android:padding="5dp"
+        android:src="@drawable/dc"
+        android:background="@drawable/roundimage"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView" />
+    <TextView
+        android:layout_width="250dip"
+        android:layout_height="50dip"
+        android:text="CARE : "
+        android:textAlignment="center"
+        android:paddingTop="15dip"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/t1"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dip" />
+    <ImageView
+        android:layout_width="60dip"
+        android:id="@+id/i"
+        android:layout_height="60dip"
+        android:layout_below="@+id/t1"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>
