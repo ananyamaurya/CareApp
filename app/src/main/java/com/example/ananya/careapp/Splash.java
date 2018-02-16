@@ -1,6 +1,5 @@
 package com.example.ananya.careapp;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
