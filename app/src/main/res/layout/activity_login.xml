@@ -21,33 +21,38 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.6"
                 >
+
                 <EditText
-                    android:layout_width="250dp"
                     android:id="@+id/e-mailText"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="60dp"
+                    android:drawableLeft="@drawable/boy1"
                     android:ems="10"
                     android:hint="Username"
-                    android:textColor="#000000"
-                    android:background="@null"
-                    android:layout_marginBottom="60dp"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
                     android:textAlignment="center"
-                    android:textColorHint="#000000"
-                    android:drawableLeft="@drawable/lock"
-                    android:layout_gravity="center"
-                    android:inputType="textEmailAddress" />
+                    android:textColor="#000000"
+                    android:textColorHighlight="#e99595"
+                    android:textColorHint="#000000" />
+
                 <EditText
+                    android:id="@+id/passwordText"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/lock"
                     android:ems="10"
                     android:hint="Password"
-                    android:textColorHint="#000000"
-                    android:textColor="#000000"
-                    android:background="@null"
+                    android:inputType="textPassword"
+                    android:selectAllOnFocus="false"
+                    android:singleLine="true"
                     android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:drawableLeft="@drawable/boy1"
-                    android:id="@+id/passwordText"
-                    android:inputType="textPassword" />
+                    android:textColor="#000000"
+                    android:textColorHighlight="#e99595"
+                    android:textColorHint="#000000" />
 
                 <Button
                     android:id="@+id/button"
@@ -74,7 +79,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="SIGNUP"
+                    android:id="@+id/signup"
                     android:background="@null"
+                    android:focusable="false"
                     android:layout_marginLeft="80dp"
                     android:layout_gravity="center"
                     />
