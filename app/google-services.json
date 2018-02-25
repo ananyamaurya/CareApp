@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "894186160183",
+    "firebase_url": "https://careapp-8268d.firebaseio.com",
+    "project_id": "careapp-8268d",
+    "storage_bucket": "careapp-8268d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894186160183:android:0bb41d265a62427c",
+        "android_client_info": {
+          "package_name": "com.example.ananya.careapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894186160183-glqvl07b5vp25cjri2imm2t0sg39t53u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ananya.careapp",
+            "certificate_hash": "4b1b9aa8f286a68693f65652a5eaaaa576be6611"
+          }
+        },
+        {
+          "client_id": "894186160183-9ae7qs0ikmuknhen1jneqmbartj7dfrd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6NSXJTrwfkQxy2J7jOlZAKbuVHOaPkRg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894186160183-9ae7qs0ikmuknhen1jneqmbartj7dfrd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
