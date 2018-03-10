@@ -1,5 +1,6 @@
 package com.example.ananya.careapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,9 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Adminhome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +38,13 @@ public class Adminhome extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
-        String ss=((UserCare)getApplication()).getName();
-        TextView t= headerView.findViewById(R.id.drawusername);
-        t.setText(ss);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String usersname=user.getDisplayName().toString();
+        String usersemail=user.getEmail().toString();
+        TextView nameText= headerView.findViewById(R.id.drawusername);
+        TextView emailText= headerView.findViewById(R.id.draweremail);
+        nameText.setText(usersname);
+        emailText.setText(usersemail);
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         Addhome h1=new Addhome();
         ft.replace(R.id.homeframe,h1,"Home");
@@ -69,7 +77,8 @@ public class Adminhome extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            mAuth.signOut();
+            startActivity( new Intent(getApplicationContext(),Login.class));
         }
 
         return super.onOptionsItemSelected(item);

@@ -30,9 +30,7 @@ public class Login extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user!=null){
-            String mm=user.getDisplayName().toString();
-            ((UserCare) getApplicationContext()).setName(mm);
-            ((UserCare) getApplicationContext()).setUID(mm);
+
             startActivity(new Intent(Login.this,Adminhome.class));
         }
         emailtext=findViewById(R.id.e_mailText);
