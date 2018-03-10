@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Home" />
+        <item
             android:id="@+id/hospital"
             android:icon="@drawable/ic_menu_camera"
             android:title="Hospital" />
@@ -17,7 +21,7 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Attendant" />
         <item
-            android:id="@+id/patient"
+            android:id="@+id/carePatients"
             android:icon="@drawable/ic_menu_manage"
             android:title="Patient" />
     </group>

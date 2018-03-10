@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class Adminhome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,15 +25,6 @@ public class Adminhome extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -40,8 +32,11 @@ public class Adminhome extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
-
+        String ss=((UserCare)getApplication()).getName();
+        TextView t= headerView.findViewById(R.id.drawusername);
+        t.setText(ss);
         FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
         Addhome h1=new Addhome();
         ft.replace(R.id.homeframe,h1,"Home");
@@ -88,56 +83,52 @@ public class Adminhome extends AppCompatActivity
 
         if (id == R.id.hospital) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Hospital h1=new Hospital();
+            CareHospital h1=new CareHospital();
             ft.replace(R.id.homeframe,h1,"Home");
 
             ft.commit();
             // Handle the camera action
+        }else if (id == R.id.home) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            Addhome addhome=new Addhome();
+            ft.replace(R.id.homeframe,addhome,"Home");
+
+            ft.commit();
+
         } else if (id == R.id.doctor) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Doctor d1=new Doctor();
+            CareDoctor d1=new CareDoctor();
             ft.replace(R.id.homeframe,d1,"Home");
 
             ft.commit();
 
         } else if (id == R.id.attendant) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Attendant attendant=new Attendant();
+            CareAttendant attendant=new CareAttendant();
             ft.replace(R.id.homeframe,attendant,"Home");
-
             ft.commit();
-
-        } else if (id == R.id.patient) {
+        } else if (id == R.id.carePatients) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Patient patient=new Patient();
-            ft.replace(R.id.homeframe,patient,"Home");
-
+            CarePatients carePatients =new CarePatients();
+            ft.replace(R.id.homeframe, carePatients,"Home");
             ft.commit();
-
         } else if (id == R.id.aboutus) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
            Aboutus aboutus=new Aboutus();
             ft.replace(R.id.homeframe,aboutus,"Home");
-
             ft.commit();
-
         } else if (id == R.id.contactus) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             Contactus contactus=new Contactus();
             ft.replace(R.id.homeframe,contactus,"Home");
-
             ft.commit();
-
         }
         else if (id == R.id.Homeexit) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Hospital h1=new Hospital();
+            CareHospital h1=new CareHospital();
             ft.replace(R.id.homeframe,h1,"Home");
-
             ft.commit();
-
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

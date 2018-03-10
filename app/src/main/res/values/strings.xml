@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">C.A.R.E.</string>
+    <string name="app_name">CareMed</string>
     <string name="title_activity_adminhome">Adminhome</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

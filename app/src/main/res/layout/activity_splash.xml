@@ -13,7 +13,7 @@
         android:layout_height="200dip"
         android:layout_marginTop="115dip"
         android:padding="5dp"
-        android:src="@drawable/dc"
+        android:src="@drawable/care"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/imageView" />
