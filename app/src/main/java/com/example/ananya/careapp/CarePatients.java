@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 
 /**
@@ -13,6 +15,8 @@ import android.view.ViewGroup;
  */
 public class CarePatients extends Fragment {
 
+    Button pview,pdelete;
+    LinearLayout pl1,pl2;
 
     public CarePatients() {
         // Required empty public constructor
@@ -23,7 +27,13 @@ public class CarePatients extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_patient, container, false);
+        View v4= inflater.inflate(R.layout.fragment_patient, container, false);
+        pview=v4.findViewById(R.id.patientview);
+        pdelete=v4.findViewById(R.id.patientdelete);
+        pl1=v4.findViewById(R.id.patient1);
+        pl2=v4.findViewById(R.id.patient2);
+
+        return v4;
     }
 
 }

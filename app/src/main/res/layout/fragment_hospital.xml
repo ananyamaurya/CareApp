@@ -5,9 +5,40 @@
     tools:context="com.example.ananya.careapp.CareHospital">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hospital" />
+        android:id="@+id/hospital1"
+        android:orientation="vertical"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/hospital2"
+        android:orientation="vertical"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:background="#1babc7">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/hospital_view"
+            android:textColor="#ffff"
+            android:background="@color/transparent"
+            android:id="@+id/hospitalview"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/hospital_delete"
+            android:background="@color/transparent"
+            android:textColor="#ffff"
+            android:id="@+id/hospitaldelete"
+            />
+    </LinearLayout>
 
 </FrameLayout>

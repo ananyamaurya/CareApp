@@ -4,6 +4,14 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="doctor_view">Doctor View</string>
+    <string name="doctor_delete">Doctor Delete</string>
+    <string name="patient_view">Patient View</string>
+    <string name="patient_delete">Patient Delete</string>
+    <string name="attendant_view">Attendant View</string>
+    <string name="attendant_delete">Attendant Delete</string>
+    <string name="hospital_view">Hospital View</string>
+    <string name="hospital_delete">Hospital Delete</string>
 
     <string name="action_settings">Log Out</string>
 
