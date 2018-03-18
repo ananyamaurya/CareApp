@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/black"
     android:backgroundTintMode="multiply"
-    android:backgroundTint="#ffffff"
+    android:backgroundTint="#d11babc7"
     tools:context="com.example.ananya.careapp.Login">
     <FrameLayout
         android:layout_width="match_parent"

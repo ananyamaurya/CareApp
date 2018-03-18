@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/home"
@@ -25,7 +24,6 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Patient" />
     </group>
-
     <item android:title="Communicate">
         <menu>
             <item
@@ -42,5 +40,4 @@
                 android:title="Exit" />
         </menu>
     </item>
-
 </menu>

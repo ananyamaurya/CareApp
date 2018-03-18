@@ -18,8 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemTextColor="#000000"
         android:fitsSystemWindows="true"
+        android:background="@drawable/menudrawer"
         app:headerLayout="@layout/nav_header_adminhome"
-        app:menu="@menu/activity_adminhome_drawer" />
+        app:menu="@menu/admindrawer" />
 
 </android.support.v4.widget.DrawerLayout>

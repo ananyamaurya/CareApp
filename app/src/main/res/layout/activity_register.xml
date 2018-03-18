@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/black"
     android:backgroundTintMode="multiply"
-    android:backgroundTint="#ffffff"
+    android:backgroundTint="#d11babc7"
     tools:context="com.example.ananya.careapp.Register"
     >
 
@@ -28,7 +28,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="100dp"
+                    android:layout_marginBottom="120dp"
                     android:drawableLeft="@drawable/boy1"
                     android:ems="10"
                     android:hint="Name"
@@ -43,10 +43,10 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="50dp"
+                    android:layout_marginBottom="70dp"
                     android:drawableLeft="@drawable/username"
                     android:ems="10"
-                    android:hint="Username"
+                    android:hint="E-mail"
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
                     android:textAlignment="center"
@@ -59,6 +59,7 @@
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
                     android:drawableLeft="@drawable/lock"
                     android:ems="10"
                     android:hint="Password"
@@ -67,13 +68,19 @@
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textColorHint="#000000" />
-
+                <Spinner
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/Occupation"
+                    ></Spinner>
                 <Button
                     android:id="@+id/buttonreg"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="80dp"
                     android:text="Register" />
 
             </FrameLayout>
@@ -107,7 +114,7 @@
             android:layout_width="100sp"
             android:layout_height="100sp"
             android:layout_gravity="center"
-            android:layout_marginTop="100sp"
+            android:layout_marginTop="120dp"
             android:src="@drawable/bandaid"
             />
     </FrameLayout>
