@@ -1,5 +1,4 @@
 package com.example.ananya.careapp;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -61,7 +60,6 @@ public class Register extends AppCompatActivity {
         final String name=nametext.getText().toString();
         final String email=emailtext.getText().toString();
         final String password=passwordtext.getText().toString();
-        final String occ= occSpinner.getSelectedItem().toString();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -87,11 +85,6 @@ public class Register extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                String uid= user.getUid().toString();
-                                                CaremedUser m= new CaremedUser(occ);
-                                                ref.keepSynced(true);
-                                                ref.child(uid).setValue(m);
-                                                ref.child(uid).keepSynced(true);
                                                 Toast.makeText(getApplicationContext(),"Account Creation Successful Verify Your e-mail",Toast.LENGTH_SHORT).show();
                                             }
                                         }
@@ -103,7 +96,7 @@ public class Register extends AppCompatActivity {
                     }
                 });
     }
-    private void sendVerificationEmail()
+    public void sendVerificationEmail()
     {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -113,6 +106,7 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(Register.this,"Verification Email Sent",Toast.LENGTH_SHORT).show();
+                            setUserDetails();
                             FirebaseAuth.getInstance().signOut();
                             startActivity(new Intent(Register.this, Login.class));
                             finish();
@@ -124,5 +118,12 @@ public class Register extends AppCompatActivity {
                     }
                 });
     }
-
+    public void setUserDetails(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final String occ= occSpinner.getSelectedItem().toString();
+        String uid= user.getUid().toString();
+        CaremedUser m= new CaremedUser(occ);
+        ref.keepSynced(true);
+        ref.child(uid).setValue(m);
+    }
 }

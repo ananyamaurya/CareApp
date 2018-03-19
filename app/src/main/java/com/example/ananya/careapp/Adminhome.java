@@ -64,14 +64,14 @@ public class Adminhome extends AppCompatActivity
         ImageView profile= headerView.findViewById(R.id.profilePic);
         TextView occu=headerView.findViewById(R.id.draweroccupation);
        // profile.setImageURI(user.getPhotoUrl());
-        Uri url = user.getPhotoUrl();
+        Uri url = user.getPhotoUrl();/*
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
         try {
             bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),url);
         } catch (IOException e) {
             Toast.makeText(getApplicationContext(),"Profile Pic loaded",Toast.LENGTH_SHORT).show();
         }
-        profile.setImageBitmap(bitmap);
+        profile.setImageBitmap(bitmap);*/
         nameText.setText(usersname);
         emailText.setText(usersemail);
         occu.setText(occupation);
@@ -83,17 +83,21 @@ public class Adminhome extends AppCompatActivity
     public void getUserData(){
         try{
             FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
-            final String pdsid=user.getUid().toString();
+            final String pdsid= user.getUid().toString();
             DatabaseReference datanapshot = FirebaseDatabase.getInstance().getReference("users");
             datanapshot.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     if (snapshot.hasChild(pdsid)) {
-                        occupation = snapshot.child(pdsid).child("occupation").getValue().toString();
+                        if(snapshot.child(pdsid).child("occupation").getValue().toString()=="null"){
+                            occupation="null error";
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                        }
 
-                        Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
                     }
                     else {
+                        occupation="Not Available";
                         Toast.makeText(getApplicationContext(),"Patient Doesn't Exist With this ID",Toast.LENGTH_SHORT).show();
                     }
                 }
