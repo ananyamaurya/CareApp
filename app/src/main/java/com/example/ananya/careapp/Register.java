@@ -26,7 +26,7 @@ public class Register extends AppCompatActivity {
     EditText nametext,emailtext,passwordtext;
     Spinner occSpinner;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference ref= database.getReference("users");
+    DatabaseReference ref= database.getReference("caremedusers");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,15 +105,15 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(Register.this,"Verification Email Sent",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Verification Email Sent",Toast.LENGTH_SHORT).show();
                             setUserDetails();
                             FirebaseAuth.getInstance().signOut();
-                            startActivity(new Intent(Register.this, Login.class));
+                            startActivity(new Intent(getApplicationContext(), Login.class));
                             finish();
                         }
                         else
                         {
-                            Toast.makeText(Register.this,"Verification Email Not Sent",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Verification Email Not Sent",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -121,9 +121,13 @@ public class Register extends AppCompatActivity {
     public void setUserDetails(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String occ= occSpinner.getSelectedItem().toString();
+
         String uid= user.getUid().toString();
+        if(uid==null){
+            Toast.makeText(getApplicationContext(),"Saala User Not Found",Toast.LENGTH_SHORT).show();
+        }else{
         CaremedUser m= new CaremedUser(occ);
-        ref.keepSynced(true);
         ref.child(uid).setValue(m);
+        }
     }
 }

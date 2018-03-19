@@ -1,19 +1,14 @@
 package com.example.ananya.careapp;
 
-import android.app.Application;
-import android.widget.Toast;
-
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by Ananya on 11-03-2018.
  */
 
-public class CaremedUser extends Application{
+public class CaremedUser{
     String Hospital="Hospital";
     String Occupation="NA";
-    Integer Age=0;
+    String Age="NA";
     String Gender="NA";
 
 
@@ -23,7 +18,7 @@ public class CaremedUser extends Application{
 
     public CaremedUser(String occupation) {
         Occupation = occupation;
-        Age= 0;
+        Age= "0";
         Gender="NA";
         Hospital="NA";
     }
@@ -44,11 +39,11 @@ public class CaremedUser extends Application{
         Gender = gender;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return Age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         Age = age;
     }
 
