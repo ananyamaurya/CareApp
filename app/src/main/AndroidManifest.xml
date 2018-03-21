@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ananya.careapp">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@drawable/care"
         android:label="@string/app_name"
@@ -29,6 +30,19 @@
         <activity
             android:name=".Adminhome"
             android:label="@string/title_activity_adminhome"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ViewHospital" />
+        <activity
+            android:name=".DoctorHome"
+            android:label="@string/title_activity_doctor_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PatientHome"
+            android:label="@string/title_activity_patient_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AttendantHome"
+            android:label="@string/title_activity_attendant_home"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

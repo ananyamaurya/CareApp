@@ -2,42 +2,41 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/home"
+            android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
             android:title="Home" />
         <item
-            android:id="@+id/hospital"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Hospital" />
-        <item
-            android:id="@+id/doctor"
+            android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Doctor" />
+            android:title="Add Appointment" />
         <item
-            android:id="@+id/attendant"
+            android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Attendant" />
+            android:title="Update Patient Details" />
         <item
-            android:id="@+id/carePatients"
+            android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Patient" />
+            android:title="Delete Patient" />
     </group>
+
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/adminaboutus"
+                android:id="@+id/attenaboutus"
                 android:icon="@drawable/ic_menu_share"
                 android:title="About Us" />
             <item
-                android:id="@+id/admincontactus"
+                android:id="@+id/attencontactus"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Contact Us" />
             <item
-                android:id="@+id/adminHomeexit"
+                android:id="@+id/AttenHomeexit"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Exit" />
         </menu>
     </item>
+
 </menu>

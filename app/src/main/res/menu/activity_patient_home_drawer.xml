@@ -2,42 +2,37 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/home"
+            android:id="@+id/patappointment"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Home" />
+            android:title="Appointment" />
         <item
-            android:id="@+id/hospital"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Hospital" />
-        <item
-            android:id="@+id/doctor"
+            android:id="@+id/patDoctor"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Doctor" />
+            android:title="Find Doctor" />
         <item
-            android:id="@+id/attendant"
+            android:id="@+id/patHospital"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Attendant" />
-        <item
-            android:id="@+id/carePatients"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Patient" />
+            android:title="Find Hospital" />
     </group>
+
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/adminaboutus"
+                android:id="@+id/pataboutus"
                 android:icon="@drawable/ic_menu_share"
                 android:title="About Us" />
             <item
-                android:id="@+id/admincontactus"
+                android:id="@+id/patcontactus"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Contact Us" />
             <item
-                android:id="@+id/adminHomeexit"
+                android:id="@+id/patHomeexit"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Exit" />
         </menu>
     </item>
+
 </menu>

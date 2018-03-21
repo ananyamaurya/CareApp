@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,6 +23,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 
 public class Login extends AppCompatActivity {
@@ -35,11 +38,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mAuth=FirebaseAuth.getInstance();
         getSupportActionBar().hide();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if(user!=null){
-
-            startActivity(new Intent(Login.this,Adminhome.class));
-        }
         emailtext=findViewById(R.id.e_mailText);
         passwordtext= findViewById(R.id.passwordText);
         signin=findViewById(R.id.login);
@@ -72,8 +70,7 @@ public class Login extends AppCompatActivity {
                                     if (fuser.isEmailVerified())
                                     {
                                         Toast.makeText(Login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
-
-                                        startActivity(new Intent(Login.this, Adminhome.class));
+                                        getUserData();
                                     }
                                     else
                                     {
@@ -90,5 +87,53 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+    public void getUserData(){
+        try{
+            FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+            final String pdsid= user.getUid().toString();
+            DatabaseReference datanapshot = FirebaseDatabase.getInstance().getReference("caremedusers");
+            datanapshot.keepSynced(true);
+            datanapshot.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    if (snapshot.hasChild(pdsid)) {
+                        if(snapshot.child(pdsid).child("occupation").getValue().toString()=="null"){
+                            ((MyApp) getApplication()).setOccupation("Khali Ba");
+                        }else{
+                            String ss= snapshot.child(pdsid).child("occupation").getValue().toString();
+                            ((MyApp) getApplication()).setOccupation(ss);
+                            if(Objects.equals(ss, "Doctor")){
+                                startActivity(new Intent(getApplicationContext(),DoctorHome.class));
+                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                            }else if(Objects.equals(ss, "Attendant")){
+                                startActivity(new Intent(getApplicationContext(),AttendantHome.class));
+                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                            }else if(Objects.equals(ss, "Patient")){
+                                startActivity(new Intent(getApplicationContext(),PatientHome.class));
+                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                            }else if(Objects.equals(ss, "Admin")){
+                                startActivity(new Intent(getApplicationContext(),Adminhome.class));
+                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                            }
 
+                        }
+
+                    }
+                    else {
+                        ((MyApp) getApplication()).setOccupation("Nahi Milal");
+                        Toast.makeText(getApplicationContext(),"No Occupation Added",Toast.LENGTH_SHORT).show();
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(), "Error Occured", Toast.LENGTH_SHORT).show();
+                }
+            });
+            datanapshot.keepSynced(true);
+        }
+        catch(Exception ex){
+            Toast.makeText(getApplicationContext(),"Soem Error Occured",Toast.LENGTH_SHORT).show();
+        }
+
+    }
 }

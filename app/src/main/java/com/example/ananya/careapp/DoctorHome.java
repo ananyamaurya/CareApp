@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,29 +21,30 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
-import java.net.URL;
 
-public class Adminhome extends AppCompatActivity
+public class DoctorHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    String occupation;
-    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adminhome);
+        setContentView(R.layout.activity_doctor_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mAuth = FirebaseAuth.getInstance();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -58,10 +58,10 @@ public class Adminhome extends AppCompatActivity
         String usersname=user.getDisplayName().toString();
         String usersemail=user.getEmail().toString();
 
-        TextView nameText= headerView.findViewById(R.id.drawusername);
-        TextView emailText= headerView.findViewById(R.id.draweremail);
-        ImageView profile= headerView.findViewById(R.id.profilePic);
-        TextView occu=headerView.findViewById(R.id.draweroccupation);
+        TextView nameText= headerView.findViewById(R.id.docdrawusername);
+        TextView emailText= headerView.findViewById(R.id.docdraweremail);
+        ImageView profile= headerView.findViewById(R.id.docprofilePic);
+        TextView occu=headerView.findViewById(R.id.docdraweroccupation);
         String ss=((MyApp) getApplication()).getOccupation();
         occu.setText(ss);
         profile.setImageURI(user.getPhotoUrl());
@@ -75,11 +75,6 @@ public class Adminhome extends AppCompatActivity
         profile.setImageBitmap(bitmap);
         nameText.setText(usersname);
         emailText.setText(usersemail);
-
-        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        Addhome h1=new Addhome();
-        ft.replace(R.id.homeframe,h1,"Home");
-        ft.commit();
     }
 
     @Override
@@ -95,7 +90,7 @@ public class Adminhome extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.adminhome, menu);
+        getMenuInflater().inflate(R.menu.doctor_home, menu);
         return true;
     }
 
@@ -108,6 +103,7 @@ public class Adminhome extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            FirebaseAuth mAuth = FirebaseAuth.getInstance();;
             mAuth.signOut();
             startActivity( new Intent(getApplicationContext(),Login.class));
         }
@@ -121,51 +117,22 @@ public class Adminhome extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.hospital) {
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            CareHospital h1=new CareHospital();
-            ft.replace(R.id.homeframe,h1,"Home");
-
-            ft.commit();
+        if (id == R.id.docqueue) {
             // Handle the camera action
-        }else if (id == R.id.home) {
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Addhome addhome=new Addhome();
-            ft.replace(R.id.homeframe,addhome,"Home");
+        } else if (id == R.id.docdetails) {
 
-            ft.commit();
+        } else if (id == R.id.docvisit) {
 
-        } else if (id == R.id.doctor) {
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            CareDoctor d1=new CareDoctor();
-            ft.replace(R.id.homeframe,d1,"Home");
+        } else if (id == R.id.doccondition) {
 
-            ft.commit();
+        } else if (id == R.id.doctoraboutus) {
 
-        } else if (id == R.id.attendant) {
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            CareAttendant attendant=new CareAttendant();
-            ft.replace(R.id.homeframe,attendant,"Home");
-            ft.commit();
-        } else if (id == R.id.carePatients) {
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            CarePatients carePatients =new CarePatients();
-            ft.replace(R.id.homeframe, carePatients,"Home");
-            ft.commit();
-        } else if (id == R.id.aboutus) {
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-           Aboutus aboutus=new Aboutus();
-            ft.replace(R.id.homeframe,aboutus,"Home");
-            ft.commit();
-        } else if (id == R.id.contactus) {
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Contactus contactus=new Contactus();
-            ft.replace(R.id.homeframe,contactus,"Home");
-            ft.commit();
+        } else if (id == R.id.doctorcontactus) {
+
+        }else if (id == R.id.doctorHomeexit) {
+
         }
-        else if (id == R.id.Homeexit) {
-            System.exit(0);
-        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

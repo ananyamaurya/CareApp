@@ -6,7 +6,7 @@ package com.example.ananya.careapp;
  */
 
 public class CaremedUser{
-    String Hospital="Hospital";
+    String Hospital="com.example.ananya.careapp.Hospital";
     String Occupation="NA";
     String Age="NA";
     String Gender="NA";
