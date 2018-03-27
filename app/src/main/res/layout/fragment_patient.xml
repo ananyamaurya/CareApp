@@ -91,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
                 android:textAlignment="center"
-                android:entries="@string-array/gender"></Spinner>
+                android:entries="@array/gender"
+                />
 
         </LinearLayout>
         <LinearLayout
@@ -138,7 +139,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
                 android:textAlignment="center"
-                android:entries="@string-array/bloodgroup"></Spinner>
+                android:entries="@array/bloodgroup"
+                />
 
         </LinearLayout>
         <TextView
@@ -152,7 +154,7 @@
             android:text="Hospital" />
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Spinner>
+            android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"

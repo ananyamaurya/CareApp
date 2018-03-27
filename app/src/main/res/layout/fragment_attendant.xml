@@ -86,12 +86,14 @@
                 android:textAlignment="center"
                 android:layout_weight="0.8"
                 android:hint="e.g. 28" />
+
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
                 android:textAlignment="center"
-                android:entries="@string-array/gender"></Spinner>
+                android:entries="@array/gender"
+                 />
 
         </LinearLayout>
 
@@ -104,9 +106,10 @@
             android:textSize="20sp"
             android:ems="10"
             android:text="Hospital" />
+
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Spinner>
+            android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
