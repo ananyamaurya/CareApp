@@ -5,6 +5,9 @@
     tools:context="com.example.ananya.careapp.CarePatients">
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -189,6 +192,7 @@
 
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
+</ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
