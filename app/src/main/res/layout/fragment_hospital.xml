@@ -96,15 +96,6 @@
         android:orientation="horizontal"
         android:layout_gravity="bottom"
         android:background="#1babc7">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_weight="0.5"
-            android:text="@string/hospital_view"
-            android:textColor="#ffff"
-            android:background="@color/transparent"
-            android:id="@+id/hospitaladd"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="50dp"
@@ -114,5 +105,14 @@
             android:textColor="#ffff"
             android:id="@+id/hospitalview"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="0.5"
+            android:text="@string/hospital_view"
+            android:textColor="#ffff"
+            android:background="@color/transparent"
+            android:id="@+id/hospitaladd"/>
+
     </LinearLayout>
 </FrameLayout>
