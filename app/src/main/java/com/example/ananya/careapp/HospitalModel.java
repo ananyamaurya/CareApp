@@ -4,11 +4,16 @@ package com.example.ananya.careapp;
  * Created by Ananya on 19-03-2018.
  */
 
-public class Hospital {
+public class HospitalModel {
+    private static final String TAG = "HospitalModel";
+
     String HospitalName;
     String HospitalCity;
     String HospitalAddress;
-    public Hospital(String HospitalName, String HospitalCity, String HospitalAddress ) {
+    public  HospitalModel(){
+
+    }
+    public HospitalModel(String HospitalName, String HospitalCity, String HospitalAddress ) {
         this.HospitalName=HospitalName;
         this.HospitalCity=HospitalCity;
         this.HospitalAddress=HospitalAddress;

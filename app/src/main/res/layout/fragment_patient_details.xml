@@ -1,0 +1,176 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ananya.careapp.PatientDetails">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/patient1"
+        android:background="@drawable/roundimage"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textColor="#034951"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:ems="10"
+        android:text="Name" />
+    <EditText
+        android:id="@+id/dosfname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:focusable="false"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="e.g. DR. Suresh" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#034951"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_weight="0.5"
+            android:text="Age" />
+        <TextView
+            android:id="@+id/hosname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#034951"
+            android:text="Gender"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/dosage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:focusable="false"
+            android:textAlignment="center"
+            android:layout_weight="0.8"
+            android:hint="e.g. 28" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.8"
+            android:focusable="false"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#034951"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_weight="0.5"
+            android:text="Weight" />
+        <TextView
+            android:id="@+id/painame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="#034951"
+            android:text="Blood Group"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/paiage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:focusable="false"
+            android:textAlignment="center"
+            android:layout_weight="0.8"
+            android:hint="e.g. 58" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.8"
+            android:focusable="false"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#034951"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:ems="10"
+        android:text="Hospital" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:focusable="false"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#034951"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:ems="10"
+        android:text="Email Id" />
+    <EditText
+        android:id="@+id/dosemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:focusable="false"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="e.g. abc@example.com" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Medical History Below"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/patientHistory_recyclerView" />
+    </LinearLayout>
+
+</FrameLayout>

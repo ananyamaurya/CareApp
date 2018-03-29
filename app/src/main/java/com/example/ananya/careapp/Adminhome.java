@@ -6,8 +6,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -22,17 +20,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class Adminhome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -137,9 +128,8 @@ public class Adminhome extends AppCompatActivity
 
         } else if (id == R.id.doctor) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            CareDoctor d1=new CareDoctor();
-            ft.replace(R.id.homeframe,d1,"Home");
-
+            CareDoctor careDoctor=new CareDoctor();
+            ft.replace(R.id.homeframe, careDoctor, "Home");
             ft.commit();
 
         } else if (id == R.id.attendant) {

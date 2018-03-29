@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -117,20 +118,49 @@ public class DoctorHome extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.docqueue) {
+        if (id == R.id.dochome) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            Addhome addhome=new Addhome();
+            ft.replace(R.id.dochomeframe,addhome,"Home");
+            ft.commit();
             // Handle the camera action
-        } else if (id == R.id.docdetails) {
+        } else if (id == R.id.docqueue) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            PatientQueues patientQueues=new PatientQueues();
+            ft.replace(R.id.dochomeframe,patientQueues,"Home");
+            ft.commit();
 
+        }else if (id == R.id.docdetails) {
+
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            PatientDetails patientDetails=new PatientDetails();
+            ft.replace(R.id.dochomeframe,patientDetails,"Home");
+            ft.commit();
         } else if (id == R.id.docvisit) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            DoctorVisit doctorVisit=new DoctorVisit();
+            ft.replace(R.id.dochomeframe,doctorVisit,"Home");
+            ft.commit();
 
         } else if (id == R.id.doccondition) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            UpdateConditions doctorVisit=new UpdateConditions();
+            ft.replace(R.id.dochomeframe,doctorVisit,"Home");
+            ft.commit();
 
         } else if (id == R.id.doctoraboutus) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            Aboutus aboutus=new Aboutus();
+            ft.replace(R.id.dochomeframe,aboutus,"Home");
+            ft.commit();
 
         } else if (id == R.id.doctorcontactus) {
-
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            Contactus contactus=new Contactus();
+            ft.replace(R.id.dochomeframe,contactus,"Home");
+            ft.commit();
         }else if (id == R.id.doctorHomeexit) {
-
+            System.exit(0);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

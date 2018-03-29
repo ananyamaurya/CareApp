@@ -12,7 +12,7 @@ public class ViewHospital extends AppCompatActivity {
     DatabaseReference databasePatients;
     ListView listviewpatient;
     String ss;
-    List<Hospital> patientList;
+    List<HospitalModel> patientList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

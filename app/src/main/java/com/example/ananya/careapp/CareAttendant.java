@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.ananya.careapp.R;
+
 
 /**
  * A simple {@link Fragment} subclass.

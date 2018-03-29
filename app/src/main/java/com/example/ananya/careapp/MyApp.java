@@ -14,7 +14,7 @@ public class MyApp extends Application{
     String Name="Dummy";
     String UID="userId";
     String Occupation="Nahi Pata";
-    String Hospital="Tera Hospital";
+    String Hospital="Tera HospitalModel";
 
     @Override
     public void onCreate() {
