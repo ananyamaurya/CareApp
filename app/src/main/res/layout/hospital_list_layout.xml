@@ -1,6 +1,6 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="160dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="10dp"
     android:layout_margin="10dp">
@@ -18,7 +18,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/hoscity"
+                android:id="@+id/hosid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Company Name"
@@ -36,12 +36,21 @@
             android:padding="5dp"
             android:layout_marginBottom="30dp">
 
-            <TextView
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FeedBack"
+                android:focusable="false"
                 android:textSize="16sp"
                 android:id="@+id/hospitalname" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FeedBack"
+                android:focusable="false"
+                android:layout_below="@id/hospitalname"
+                android:textSize="16sp"
+                android:id="@+id/hoscity" />
 
         </RelativeLayout>
 

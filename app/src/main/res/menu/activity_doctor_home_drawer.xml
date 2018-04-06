@@ -6,23 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/dochome"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/icon"
             android:title="Home" />
         <item
             android:id="@+id/docqueue"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/line"
             android:title="Patient Queues" />
         <item
             android:id="@+id/docdetails"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/curriculum"
             android:title="Patient Details" />
         <item
             android:id="@+id/docvisit"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/briefcase"
             android:title="Previous Doctor Visit" />
         <item
             android:id="@+id/doccondition"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/doctor"
             android:title="Update Condition" />
     </group>
 
@@ -30,15 +30,15 @@
         <menu>
             <item
                 android:id="@+id/doctoraboutus"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/database"
                 android:title="About Us" />
             <item
                 android:id="@+id/doctorcontactus"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/support"
                 android:title="Contact Us" />
             <item
                 android:id="@+id/doctorHomeexit"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/logout"
                 android:title="Exit" />
         </menu>
     </item>

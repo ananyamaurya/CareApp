@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/pathome"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/icon"
             android:title="Home" />
         <item
             android:id="@+id/patappointment"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/iconss"
             android:title="Appointment" />
         <item
             android:id="@+id/patDoctor"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/briefcase"
             android:title="Find Doctor" />
         <item
             android:id="@+id/patHospital"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/hostpitalblack"
             android:title="Find Hospital" />
     </group>
 
@@ -26,15 +26,15 @@
         <menu>
             <item
                 android:id="@+id/pataboutus"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/database"
                 android:title="About Us" />
             <item
                 android:id="@+id/patcontactus"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/support"
                 android:title="Contact Us" />
             <item
                 android:id="@+id/patHomeexit"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/logout"
                 android:title="Exit" />
         </menu>
     </item>

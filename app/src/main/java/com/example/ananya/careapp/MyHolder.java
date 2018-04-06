@@ -2,6 +2,7 @@ package com.example.ananya.careapp;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -11,16 +12,20 @@ import android.widget.TextView;
 public class MyHolder extends RecyclerView.ViewHolder {
     private static final String TAG = "MyHolder";
 
-    public TextView mUserName;
+    public EditText mUserName;
     public TextView mFeedBack;
-    public TextView mCompanyName;
+    public EditText mCompanyName;
+    public TextView id;
+
 
     public MyHolder(View itemView) {
         super(itemView);
 
-        mCompanyName = (TextView) itemView.findViewById(R.id.hospitalname);
+        mCompanyName = itemView.findViewById(R.id.hospitalname);
         mFeedBack = (TextView) itemView.findViewById(R.id.hospitaladdress);
-        mUserName = (TextView) itemView.findViewById(R.id.hoscity);
+        mUserName = itemView.findViewById(R.id.hoscity);
+        id = itemView.findViewById(R.id.hosid);
+
     }
 
 }

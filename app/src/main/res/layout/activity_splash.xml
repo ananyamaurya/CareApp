@@ -16,7 +16,7 @@
         android:src="@drawable/care"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imageView" />
+        android:id="@+id/imageViewzz" />
     <TextView
         android:layout_width="250dip"
         android:layout_height="50dip"
@@ -26,15 +26,15 @@
         android:textColor="#ffff"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:id="@+id/t1"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/torrent"
+        android:layout_below="@+id/imageViewzz"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dip" />
     <ImageView
         android:layout_width="60dip"
-        android:id="@+id/i"
+        android:id="@+id/ixz"
         android:layout_height="60dip"
-        android:layout_below="@+id/t1"
+        android:layout_below="@+id/torrent"
         android:layout_centerHorizontal="true"
         />
 

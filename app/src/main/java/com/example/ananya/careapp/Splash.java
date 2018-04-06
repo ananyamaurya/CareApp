@@ -27,7 +27,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         getSupportActionBar().hide();
-        ImageView img = (ImageView) findViewById(R.id.i);
+        ImageView img = (ImageView) findViewById(R.id.ixz);
         img.setBackgroundResource(R.drawable.list);
         AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
         frameAnimation.start();
@@ -39,6 +39,7 @@ public class Splash extends AppCompatActivity {
                 @Override
                 public void run() {
                     getUserData();
+
                 }
             }, 3000);
         }else{
@@ -69,15 +70,19 @@ public class Splash extends AppCompatActivity {
                             ((MyApp) getApplication()).setOccupation(ss);
                             if(Objects.equals(ss, "Doctor")){
                                 startActivity(new Intent(getApplicationContext(),DoctorHome.class));
+                                finish();
                                 Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
                             }else if(Objects.equals(ss, "Attendant")){
                                 startActivity(new Intent(getApplicationContext(),AttendantHome.class));
+                                finish();
                                 Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
                             }else if(Objects.equals(ss, "Patient")){
                                 startActivity(new Intent(getApplicationContext(),PatientHome.class));
+                                finish();
                                 Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
                             }else if(Objects.equals(ss, "Admin")){
                                 startActivity(new Intent(getApplicationContext(),Adminhome.class));
+                                finish();
                                 Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
                             }
 

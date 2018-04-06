@@ -37,6 +37,12 @@
         <item>AB-</item>
         <item>AB+</item>
     </string-array>
+    <string-array name="condition">
+        <item>Very Critical</item>
+        <item>Critical</item>
+        <item>Normal</item>
+        <item>Healthy</item>
+    </string-array>
     <string name="title_activity_doctor_home">DoctorHome</string>
     <string name="title_activity_patient_home">PatientHome</string>
     <string name="title_activity_attendant_home">AttendantHome</string>

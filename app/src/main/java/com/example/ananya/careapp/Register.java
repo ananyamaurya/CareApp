@@ -135,7 +135,6 @@ public class Register extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.hasChild("somecount")) {
                     pat= (long)snapshot.child("somecount").child("countPat").getValue();
-                    Toast.makeText(getApplicationContext(),String.valueOf(pat),Toast.LENGTH_SHORT).show();
                     att = (long)snapshot.child("somecount").child("countAtt").getValue();
                     doc = (long)snapshot.child("somecount").child("countDoc").getValue();
 
@@ -146,8 +145,10 @@ public class Register extends AppCompatActivity {
                             pat=pat+1;
                             datanapshot.child("somecount").child("countPat").setValue(pat);
                             CaremedUser m = new CaremedUser(occ,pat);
-                            savepat.child(String.valueOf(pat)).setValue(m);
                             ref.child(uid).setValue(m);
+                            Toast.makeText(getApplicationContext(),"Andar Pahunche",Toast.LENGTH_SHORT).show();
+                            savepat.child(String.valueOf(pat)).setValue(m);
+                            savepat.child(String.valueOf(pat)).child("medicalCount").setValue(1);
                         }else if(Objects.equals(occ, "Doctor")){
                             doc=doc+1;
                             datanapshot.child("somecount").child("countDoc").setValue(doc);
@@ -162,7 +163,6 @@ public class Register extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"Luch bhi nahi",Toast.LENGTH_SHORT).show();
                         }
                     }
-                    Toast.makeText(getApplicationContext(), String.valueOf(pat), Toast.LENGTH_SHORT).show();
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(getApplicationContext(), Login.class));
                     finish();

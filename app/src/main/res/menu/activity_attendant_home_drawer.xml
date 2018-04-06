@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/icon"
             android:title="Home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Add Appointment" />
+            android:icon="@drawable/healthreport"
+            android:title="Add Reports" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/curriculum"
             android:title="Update Patient Details" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/user"
             android:title="Delete Patient" />
     </group>
 
@@ -26,15 +26,15 @@
         <menu>
             <item
                 android:id="@+id/attenaboutus"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/database"
                 android:title="About Us" />
             <item
                 android:id="@+id/attencontactus"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/support"
                 android:title="Contact Us" />
             <item
                 android:id="@+id/AttenHomeexit"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/logout"
                 android:title="Exit" />
         </menu>
     </item>

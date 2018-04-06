@@ -37,15 +37,6 @@ public class DoctorHome extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -76,6 +67,10 @@ public class DoctorHome extends AppCompatActivity
         profile.setImageBitmap(bitmap);
         nameText.setText(usersname);
         emailText.setText(usersemail);
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        DocHome addhome=new DocHome();
+        ft.replace(R.id.dochomeframe,addhome,"Home");
+        ft.commit();
     }
 
     @Override
@@ -83,8 +78,12 @@ public class DoctorHome extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        } else {int fragments = getSupportFragmentManager().getBackStackEntryCount();
+            if (fragments > 1) {
+                super.onBackPressed();
+            } else {
+                System.exit(0);
+            }
         }
     }
 
@@ -107,6 +106,7 @@ public class DoctorHome extends AppCompatActivity
             FirebaseAuth mAuth = FirebaseAuth.getInstance();;
             mAuth.signOut();
             startActivity( new Intent(getApplicationContext(),Login.class));
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -120,7 +120,7 @@ public class DoctorHome extends AppCompatActivity
 
         if (id == R.id.dochome) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            Addhome addhome=new Addhome();
+            DocHome addhome=new DocHome();
             ft.replace(R.id.dochomeframe,addhome,"Home");
             ft.commit();
             // Handle the camera action

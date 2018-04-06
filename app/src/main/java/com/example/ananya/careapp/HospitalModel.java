@@ -10,13 +10,25 @@ public class HospitalModel {
     String HospitalName;
     String HospitalCity;
     String HospitalAddress;
+    String Id;
     public  HospitalModel(){
 
     }
-    public HospitalModel(String HospitalName, String HospitalCity, String HospitalAddress ) {
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public HospitalModel(String HospitalName, String HospitalCity, String HospitalAddress, String Id ) {
         this.HospitalName=HospitalName;
         this.HospitalCity=HospitalCity;
         this.HospitalAddress=HospitalAddress;
+        this.Id= Id;
+
     }
 
     public String getHospitalName() {

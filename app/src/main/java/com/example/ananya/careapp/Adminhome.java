@@ -78,8 +78,12 @@ public class Adminhome extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        } else {int fragments = getSupportFragmentManager().getBackStackEntryCount();
+            if (fragments > 1) {
+                super.onBackPressed();
+            } else {
+                System.exit(0);
+            }
         }
     }
 
@@ -101,6 +105,7 @@ public class Adminhome extends AppCompatActivity
         if (id == R.id.action_settings) {
             mAuth.signOut();
             startActivity( new Intent(getApplicationContext(),Login.class));
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

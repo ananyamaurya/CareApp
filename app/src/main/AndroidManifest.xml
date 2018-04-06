@@ -9,15 +9,16 @@
     <application
         android:name=".MyApp"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/care"
         android:label="@string/app_name"
         android:roundIcon="@drawable/care"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash">
+        <activity android:name=".Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,7 +31,8 @@
         <activity
             android:name=".Adminhome"
             android:label="@string/title_activity_adminhome"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity android:name=".ViewHospital" />
         <activity
             android:name=".DoctorHome"
@@ -43,7 +45,7 @@
         <activity
             android:name=".AttendantHome"
             android:label="@string/title_activity_attendant_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

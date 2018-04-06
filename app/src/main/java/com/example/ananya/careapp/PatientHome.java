@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -51,7 +52,7 @@ public class PatientHome extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.pat_nav_view);
         View headerView = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -64,15 +65,8 @@ public class PatientHome extends AppCompatActivity
         TextView occu=headerView.findViewById(R.id.patdraweroccupation);
         String ss=((MyApp) getApplication()).getOccupation();
         occu.setText(ss);
-        profile.setImageURI(user.getPhotoUrl());
         Uri url = user.getPhotoUrl();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
-        try {
-            bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),url);
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(),"Profile Pic loaded",Toast.LENGTH_SHORT).show();
-        }
-        profile.setImageBitmap(bitmap);
+        Picasso.with(getApplicationContext()).load(url).into(profile);
         nameText.setText(usersname);
         emailText.setText(usersemail);
     }
@@ -82,8 +76,12 @@ public class PatientHome extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        } else {int fragments = getSupportFragmentManager().getBackStackEntryCount();
+            if (fragments > 1) {
+                super.onBackPressed();
+            } else {
+                System.exit(0);
+            }
         }
     }
 
@@ -106,6 +104,7 @@ public class PatientHome extends AppCompatActivity
             FirebaseAuth mAuth = FirebaseAuth.getInstance();;
             mAuth.signOut();
             startActivity( new Intent(getApplicationContext(),Login.class));
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

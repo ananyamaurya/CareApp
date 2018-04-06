@@ -5,38 +5,38 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/icon"
             android:title="Home" />
         <item
             android:id="@+id/hospital"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/hostpitalblack"
             android:title="Hospital" />
         <item
             android:id="@+id/doctor"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/doctor"
             android:title="Doctor" />
         <item
             android:id="@+id/attendant"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/blackpattendant"
             android:title="Attendant" />
         <item
             android:id="@+id/carePatients"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/patient"
             android:title="Patient" />
     </group>
     <item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/adminaboutus"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/database"
                 android:title="About Us" />
             <item
                 android:id="@+id/admincontactus"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/support"
                 android:title="Contact Us" />
             <item
                 android:id="@+id/adminHomeexit"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/logout"
                 android:title="Exit" />
         </menu>
     </item>

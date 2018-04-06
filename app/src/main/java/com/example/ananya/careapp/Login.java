@@ -77,6 +77,7 @@ public class Login extends AppCompatActivity {
                                         Toast.makeText(Login.this, "Email Not Verified", Toast.LENGTH_SHORT).show();
                                         FirebaseAuth.getInstance().signOut();
                                         startActivity(new Intent(Login.this, Login.class));
+                                        finish();
                                     }
 
                                 } else {
@@ -135,5 +136,10 @@ public class Login extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Soem Error Occured",Toast.LENGTH_SHORT).show();
         }
 
+    }
+    @Override
+    public void onBackPressed() {
+
+        System.exit(0);
     }
 }
