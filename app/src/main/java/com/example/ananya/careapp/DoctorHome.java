@@ -24,12 +24,13 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
 public class DoctorHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    ImageView profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,28 +50,42 @@ public class DoctorHome extends AppCompatActivity
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String usersname=user.getDisplayName().toString();
         String usersemail=user.getEmail().toString();
-
         TextView nameText= headerView.findViewById(R.id.docdrawusername);
         TextView emailText= headerView.findViewById(R.id.docdraweremail);
-        ImageView profile= headerView.findViewById(R.id.docprofilePic);
+        profile= headerView.findViewById(R.id.docprofilePic);
         TextView occu=headerView.findViewById(R.id.docdraweroccupation);
         String ss=((MyApp) getApplication()).getOccupation();
+        Uri uri =user.getPhotoUrl();
         occu.setText(ss);
-        profile.setImageURI(user.getPhotoUrl());
-        Uri url = user.getPhotoUrl();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
-        try {
-            bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),url);
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(),"Profile Pic loaded",Toast.LENGTH_SHORT).show();
-        }
-        profile.setImageBitmap(bitmap);
+        Picasso.with(getApplicationContext()).load(uri).into(profile);
         nameText.setText(usersname);
         emailText.setText(usersemail);
-        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-        DocHome addhome=new DocHome();
-        ft.replace(R.id.dochomeframe,addhome,"Home");
-        ft.commit();
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+                ProfileDoc addhome=new ProfileDoc();
+                ft.replace(R.id.dochomeframe,addhome,"Home");
+                ft.commit();
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }
+            }
+        });/*
+        String ps = ((MyApp) getApplication()).getProfile();
+        if(ps.equals("false")){
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            ProfileDoc addhome=new ProfileDoc();
+            ft.replace(R.id.dochomeframe,addhome,"Home");
+            ft.commit();
+        }
+        else{*/
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            DocHome addhome=new DocHome();
+            ft.replace(R.id.dochomeframe,addhome,"Home");
+            ft.commit();
+
     }
 
     @Override
@@ -80,7 +95,7 @@ public class DoctorHome extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {int fragments = getSupportFragmentManager().getBackStackEntryCount();
             if (fragments > 1) {
-                super.onBackPressed();
+                getSupportFragmentManager().popBackStack();
             } else {
                 System.exit(0);
             }
@@ -122,42 +137,49 @@ public class DoctorHome extends AppCompatActivity
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             DocHome addhome=new DocHome();
             ft.replace(R.id.dochomeframe,addhome,"Home");
+            ft.addToBackStack("DoctorHome");
             ft.commit();
             // Handle the camera action
         } else if (id == R.id.docqueue) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             PatientQueues patientQueues=new PatientQueues();
             ft.replace(R.id.dochomeframe,patientQueues,"Home");
+            ft.addToBackStack("DoctorQueue");
             ft.commit();
 
         }else if (id == R.id.docdetails) {
-
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             PatientDetails patientDetails=new PatientDetails();
             ft.replace(R.id.dochomeframe,patientDetails,"Home");
+            ft.addToBackStack("PatientDetails");
             ft.commit();
+
         } else if (id == R.id.docvisit) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             DoctorVisit doctorVisit=new DoctorVisit();
             ft.replace(R.id.dochomeframe,doctorVisit,"Home");
+            ft.addToBackStack("PreviousDoctorVisit");
             ft.commit();
 
         } else if (id == R.id.doccondition) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             UpdateConditions doctorVisit=new UpdateConditions();
             ft.replace(R.id.dochomeframe,doctorVisit,"Home");
+            ft.addToBackStack("DoctorUpdateCondition");
             ft.commit();
 
         } else if (id == R.id.doctoraboutus) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             Aboutus aboutus=new Aboutus();
             ft.replace(R.id.dochomeframe,aboutus,"Home");
+            ft.addToBackStack("AboutUs");
             ft.commit();
 
         } else if (id == R.id.doctorcontactus) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             Contactus contactus=new Contactus();
             ft.replace(R.id.dochomeframe,contactus,"Home");
+            ft.addToBackStack("ContactUs");
             ft.commit();
         }else if (id == R.id.doctorHomeexit) {
             System.exit(0);

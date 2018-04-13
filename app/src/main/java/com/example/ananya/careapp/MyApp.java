@@ -13,8 +13,26 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MyApp extends Application{
     String Name="Dummy";
     String UID="userId";
+    String Id="xyz";
     String Occupation="Nahi Pata";
     String Hospital="Tera HospitalModel";
+    String Profile="false";
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getProfile() {
+        return Profile;
+    }
+
+    public void setProfile(String profile) {
+        Profile = profile;
+    }
 
     @Override
     public void onCreate() {

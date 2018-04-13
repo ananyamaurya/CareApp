@@ -26,7 +26,6 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        getSupportActionBar().hide();
         ImageView img = (ImageView) findViewById(R.id.ixz);
         img.setBackgroundResource(R.drawable.list);
         AnimationDrawable frameAnimation = (AnimationDrawable) img.getBackground();
@@ -67,19 +66,38 @@ public class Splash extends AppCompatActivity {
                             ((MyApp) getApplication()).setOccupation("Khali Ba");
                         }else{
                             String ss= snapshot.child(pdsid).child("occupation").getValue().toString();
+                            String ps= Objects.requireNonNull(snapshot.child(pdsid).child("profile").getValue()).toString();
+                            String uxid= Objects.requireNonNull(snapshot.child(pdsid).child("id").getValue()).toString();
                             ((MyApp) getApplication()).setOccupation(ss);
+                            ((MyApp) getApplication()).setProfile(ps);
+                            ((MyApp) getApplication()).setId(uxid);
                             if(Objects.equals(ss, "Doctor")){
-                                startActivity(new Intent(getApplicationContext(),DoctorHome.class));
-                                finish();
-                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                                if(ps.equals("false")){
+                                    startActivity(new Intent(getApplicationContext(),ActDocProfile.class));
+                                    finish();
+                                }else {
+                                    startActivity(new Intent(getApplicationContext(), DoctorHome.class));
+                                    finish();
+                                    Toast.makeText(getApplicationContext(), "Occupation Fetched", Toast.LENGTH_SHORT).show();
+                                }
                             }else if(Objects.equals(ss, "Attendant")){
-                                startActivity(new Intent(getApplicationContext(),AttendantHome.class));
-                                finish();
-                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                                if(ps.equals("false")){
+                                    startActivity(new Intent(getApplicationContext(),ActAttProfile.class));
+                                    finish();
+                                }else {
+                                    startActivity(new Intent(getApplicationContext(), AttendantHome.class));
+                                    finish();
+                                    Toast.makeText(getApplicationContext(), "Occupation Fetched", Toast.LENGTH_SHORT).show();
+                                }
                             }else if(Objects.equals(ss, "Patient")){
-                                startActivity(new Intent(getApplicationContext(),PatientHome.class));
-                                finish();
-                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                                if(ps.equals("false")){
+                                    startActivity(new Intent(getApplicationContext(),ActPatProfile.class));
+                                    finish();
+                                }else {
+                                    startActivity(new Intent(getApplicationContext(), PatientHome.class));
+                                    finish();
+                                    Toast.makeText(getApplicationContext(), "Occupation Fetched", Toast.LENGTH_SHORT).show();
+                                }
                             }else if(Objects.equals(ss, "Admin")){
                                 startActivity(new Intent(getApplicationContext(),Adminhome.class));
                                 finish();

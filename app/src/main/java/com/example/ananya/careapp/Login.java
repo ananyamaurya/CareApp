@@ -37,7 +37,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         mAuth=FirebaseAuth.getInstance();
-        getSupportActionBar().hide();
         emailtext=findViewById(R.id.e_mailText);
         passwordtext= findViewById(R.id.passwordText);
         signin=findViewById(R.id.login);
@@ -103,15 +102,37 @@ public class Login extends AppCompatActivity {
                         }else{
                             String ss= snapshot.child(pdsid).child("occupation").getValue().toString();
                             ((MyApp) getApplication()).setOccupation(ss);
+                            String ps= Objects.requireNonNull(snapshot.child(pdsid).child("profile").getValue()).toString();
+                            String xps= Objects.requireNonNull(snapshot.child(pdsid).child("id").getValue()).toString();
+                            ((MyApp) getApplication()).setProfile(ps);
+                            ((MyApp) getApplication()).setId(xps);
                             if(Objects.equals(ss, "Doctor")){
-                                startActivity(new Intent(getApplicationContext(),DoctorHome.class));
-                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                                if(ps.equals("false")){
+                                    startActivity(new Intent(getApplicationContext(),ActDocProfile.class));
+                                    finish();
+                                }else {
+                                    startActivity(new Intent(getApplicationContext(), DoctorHome.class));
+                                    finish();
+                                    Toast.makeText(getApplicationContext(), "Occupation Fetched", Toast.LENGTH_SHORT).show();
+                                }
                             }else if(Objects.equals(ss, "Attendant")){
-                                startActivity(new Intent(getApplicationContext(),AttendantHome.class));
-                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                                if(ps.equals("false")){
+                                    startActivity(new Intent(getApplicationContext(),ActAttProfile.class));
+                                    finish();
+                                }else {
+                                    startActivity(new Intent(getApplicationContext(), AttendantHome.class));
+                                    finish();
+                                    Toast.makeText(getApplicationContext(), "Occupation Fetched", Toast.LENGTH_SHORT).show();
+                                }
                             }else if(Objects.equals(ss, "Patient")){
-                                startActivity(new Intent(getApplicationContext(),PatientHome.class));
-                                Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();
+                                if(ps.equals("false")){
+                                    startActivity(new Intent(getApplicationContext(),ActPatProfile.class));
+                                    finish();
+                                }else {
+                                    startActivity(new Intent(getApplicationContext(), PatientHome.class));
+                                    finish();
+                                    Toast.makeText(getApplicationContext(), "Occupation Fetched", Toast.LENGTH_SHORT).show();
+                                }
                             }else if(Objects.equals(ss, "Admin")){
                                 startActivity(new Intent(getApplicationContext(),Adminhome.class));
                                 Toast.makeText(getApplicationContext(),"Occupation Fetched",Toast.LENGTH_SHORT).show();

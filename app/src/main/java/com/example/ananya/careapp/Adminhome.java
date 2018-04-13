@@ -147,18 +147,18 @@ public class Adminhome extends AppCompatActivity
             CarePatients carePatients =new CarePatients();
             ft.replace(R.id.homeframe, carePatients,"Home");
             ft.commit();
-        } else if (id == R.id.aboutus) {
+        } else if (id == R.id.adminaboutus) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
            Aboutus aboutus=new Aboutus();
             ft.replace(R.id.homeframe,aboutus,"Home");
             ft.commit();
-        } else if (id == R.id.contactus) {
+        } else if (id == R.id.admincontactus) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             Contactus contactus=new Contactus();
             ft.replace(R.id.homeframe,contactus,"Home");
             ft.commit();
         }
-        else if (id == R.id.Homeexit) {
+        else if (id == R.id.adminHomeexit) {
             System.exit(0);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

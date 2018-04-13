@@ -3,30 +3,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="10dp"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    app:cardCornerRadius="10dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/relLayout1"
-            android:background="@color/colorPrimary"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/dvlid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ID"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:layout_marginRight="10dp" />
-
-        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,51 +13,152 @@
             android:id="@+id/relLayout2"
             android:orientation="vertical"
             android:layout_below="@+id/relLayout1"
-            android:padding="5dp"
-            android:layout_marginBottom="30dp">
+            android:padding="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Patient ID"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+                <TextView
+                    android:id="@+id/dvlid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:textColor="#807e7e"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
 
-            <EditText
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Doctor"
-                android:focusable="false"
-                android:textSize="16sp"
-                android:id="@+id/dvldoc" />
-            <EditText
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Doctor"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+                <TextView
+                    android:id="@+id/dvldoc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DoctorName"
+                    android:textColor="#807e7e"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Disease"
-                android:focusable="false"
-                android:textSize="16sp"
-                android:id="@+id/dvldis" />
-            <EditText
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Disease"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+                <TextView
+                    android:id="@+id/dvldis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DiseaseName"
+                    android:textColor="#807e7e"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Condition"
-                android:focusable="false"
-                android:textSize="16sp"
-                android:id="@+id/dvlcon" />
-            <EditText
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Condition"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+                <TextView
+                    android:id="@+id/dvlcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Condition Name"
+                    android:textColor="#807e7e"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Prescriptions"
-                android:focusable="false"
-                android:textSize="16sp"
-                android:id="@+id/dvlpres" />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Prescription"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+                <TextView
+                    android:id="@+id/dvlpres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="name"
+                    android:textColor="#807e7e"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Visit Time"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+                <TextView
+                    android:id="@+id/dvltime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:textColor="#807e7e"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="TimeStamp"
-            android:textSize="18sp"
-            android:id="@+id/dvltime"
-            android:layout_margin="5dp"/>
 
-    </RelativeLayout>
+
 
 </android.support.v7.widget.CardView>
 

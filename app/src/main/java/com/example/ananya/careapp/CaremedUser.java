@@ -6,13 +6,13 @@ package com.example.ananya.careapp;
  */
 
 public class CaremedUser{
-    String Hospital="com.example.ananya.careapp.HospitalModel";
+    String Hospital="HospitalModel";
     String Occupation="NA";
     String Age="NA";
     String Gender="NA";
-    long Id;
+    String Id="NA";
 
-    public CaremedUser(String occupation, long Ids) {
+    public CaremedUser(String occupation,String Ids) {
         Occupation = occupation;
         Age= "0";
         Gender="NA";
@@ -20,11 +20,11 @@ public class CaremedUser{
         Id=Ids;
     }
 
-    public long getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         Id = id;
     }
 

@@ -12,9 +12,9 @@ import android.widget.TextView;
 public class MyHolder extends RecyclerView.ViewHolder {
     private static final String TAG = "MyHolder";
 
-    public EditText mUserName;
+    public TextView mUserName;
     public TextView mFeedBack;
-    public EditText mCompanyName;
+    public TextView mCompanyName;
     public TextView id;
 
 

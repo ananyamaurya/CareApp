@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,25 +27,20 @@ import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class PatientHome extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private Uri.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -65,10 +61,28 @@ public class PatientHome extends AppCompatActivity
         TextView occu=headerView.findViewById(R.id.patdraweroccupation);
         String ss=((MyApp) getApplication()).getOccupation();
         occu.setText(ss);
-        Uri url = user.getPhotoUrl();
-        Picasso.with(getApplicationContext()).load(url).into(profile);
+        Uri uri = user.getPhotoUrl();
+        Picasso.with(getApplicationContext()).load(uri).into(profile);
         nameText.setText(usersname);
         emailText.setText(usersemail);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+                ProfilePat addhome=new ProfilePat();
+                ft.replace(R.id.patienthomeframe,addhome,"Home");
+                ft.commit();
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }
+            }
+        });
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        PatHome findHospital=new PatHome();
+        ft.replace(R.id.patienthomeframe,findHospital,"Home");
+        ft.addToBackStack("PatHome");
+        ft.commit();
     }
 
     @Override
@@ -78,7 +92,7 @@ public class PatientHome extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {int fragments = getSupportFragmentManager().getBackStackEntryCount();
             if (fragments > 1) {
-                super.onBackPressed();
+                getSupportFragmentManager().popBackStack();
             } else {
                 System.exit(0);
             }
@@ -117,10 +131,24 @@ public class PatientHome extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.patappointment) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            PatientAppointment findHospital=new PatientAppointment();
+            ft.replace(R.id.patienthomeframe,findHospital,"Home");
+            ft.addToBackStack("PatientAppointment");
+            ft.commit();
             // Handle the camera action
         } else if (id == R.id.patDoctor) {
-
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            FindDoctor findHospital=new FindDoctor();
+            ft.replace(R.id.patienthomeframe,findHospital,"Home");
+            ft.addToBackStack("Find Doctor");
+            ft.commit();
         } else if (id == R.id.patHospital) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            FindHospital findHospital=new FindHospital();
+            ft.replace(R.id.patienthomeframe,findHospital,"Home");
+            ft.addToBackStack("FindHospital");
+            ft.commit();
 
         } else if (id == R.id.pataboutus) {
 
@@ -128,6 +156,19 @@ public class PatientHome extends AppCompatActivity
 
         } else if (id == R.id.patHomeexit) {
 
+        }else if (id == R.id.patmedicalHistory) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            PatientMedicalHistory findHospital=new PatientMedicalHistory();
+            ft.replace(R.id.patienthomeframe,findHospital,"Home");
+            ft.addToBackStack("FindHospital");
+            ft.commit();
+
+        } else if (id == R.id.pathome) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            PatHome findHospital=new PatHome();
+            ft.replace(R.id.patienthomeframe,findHospital,"Home");
+            ft.addToBackStack("PatHome");
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

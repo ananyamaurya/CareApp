@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -64,17 +66,23 @@ public class AttendantHome extends AppCompatActivity
         TextView occu=headerView.findViewById(R.id.attdraweroccupation);
         String ss=((MyApp) getApplication()).getOccupation();
         occu.setText(ss);
-        profile.setImageURI(user.getPhotoUrl());
         Uri url = user.getPhotoUrl();
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile);
-        try {
-            bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),url);
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(),"Profile Pic loaded",Toast.LENGTH_SHORT).show();
-        }
-        profile.setImageBitmap(bitmap);
+        Picasso.with(getApplicationContext()).load(url).into(profile);
         nameText.setText(usersname);
         emailText.setText(usersemail);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+                ProfileAtt addhome=new ProfileAtt();
+                ft.replace(R.id.attendanthomeframe,addhome,"Home");
+                ft.commit();
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }
+            }
+        });
     }
 
     @Override
@@ -122,13 +130,21 @@ public class AttendantHome extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.navatthome) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.navaddreport) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            AddReports addhome=new AddReports();
+            ft.replace(R.id.attendanthomeframe,addhome,"Home");
+            ft.commit();
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.navviewpatient) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            PatientDetails addhome=new PatientDetails();
+            ft.replace(R.id.attendanthomeframe,addhome,"Home");
+            ft.commit();
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.navmedicalhistory) {
 
         } else if (id == R.id.attenaboutus) {
 

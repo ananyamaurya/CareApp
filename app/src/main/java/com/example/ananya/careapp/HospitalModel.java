@@ -7,10 +7,10 @@ package com.example.ananya.careapp;
 public class HospitalModel {
     private static final String TAG = "HospitalModel";
 
-    String HospitalName;
-    String HospitalCity;
-    String HospitalAddress;
-    String Id;
+    private String HospitalName;
+    private String HospitalCity;
+    private String HospitalAddress;
+    private String Id;
     public  HospitalModel(){
 
     }

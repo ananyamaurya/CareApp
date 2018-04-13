@@ -5,21 +5,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/navatthome"
             android:icon="@drawable/icon"
             android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/navaddreport"
             android:icon="@drawable/healthreport"
             android:title="Add Reports" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/navviewpatient"
             android:icon="@drawable/curriculum"
             android:title="Update Patient Details" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/navmedicalhistory"
             android:icon="@drawable/user"
-            android:title="Delete Patient" />
+            android:title="Madical History" />
     </group>
 
     <item android:title="Communicate">

@@ -31,17 +31,15 @@ public class Register extends AppCompatActivity {
     EditText nametext,emailtext,passwordtext;
     Spinner occSpinner;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference ref= database.getReference("caremedusers");
     DatabaseReference idss=database.getReference("ids");
     DatabaseReference savepat=database.getReference("patients");
+    DatabaseReference savedoc = database.getReference("docappoint");
     long pat=100,att=200,doc=300;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mAuth=FirebaseAuth.getInstance();
-        getSupportActionBar().hide();
-
         occSpinner = (Spinner)findViewById(R.id.Occupation);
         ArrayAdapter<String> spinnerCountOccuArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.occupatiouser));
         occSpinner.setAdapter(spinnerCountOccuArrayAdapter);
@@ -126,10 +124,11 @@ public class Register extends AppCompatActivity {
     }
     public void setUserDetails(){
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String uid= user.getUid().toString();
         final String occ= occSpinner.getSelectedItem().toString();
         final DatabaseReference datanapshot = FirebaseDatabase.getInstance().getReference("identitys");
+        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference("caremedusers");
         datanapshot.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -144,23 +143,31 @@ public class Register extends AppCompatActivity {
                         if(Objects.equals(occ, "Patient")) {
                             pat=pat+1;
                             datanapshot.child("somecount").child("countPat").setValue(pat);
-                            CaremedUser m = new CaremedUser(occ,pat);
-                            ref.child(uid).setValue(m);
-                            Toast.makeText(getApplicationContext(),"Andar Pahunche",Toast.LENGTH_SHORT).show();
-                            savepat.child(String.valueOf(pat)).setValue(m);
+                            ref.child(uid).child("occupation").setValue("Patient");
+                            ref.child(uid).child("id").setValue(String.valueOf(pat));
+                            ref.child(uid).child("profile").setValue("false");
+                            savepat.child(String.valueOf(pat)).child("id").setValue(String.valueOf(pat));
+                            savepat.child(String.valueOf(pat)).child("name").setValue(user.getDisplayName());
                             savepat.child(String.valueOf(pat)).child("medicalCount").setValue(1);
                         }else if(Objects.equals(occ, "Doctor")){
                             doc=doc+1;
                             datanapshot.child("somecount").child("countDoc").setValue(doc);
-                            CaremedUser m = new CaremedUser(occ,doc);
-                            ref.child(uid).setValue(m);
+                            ref.child(uid).child("occupation").setValue("Doctor");
+                            ref.child(uid).child("id").setValue(String.valueOf(doc));
+                            ref.child(uid).child("profile").setValue("false");
+                            ref.child(uid).child("name").setValue(user.getDisplayName());
+                            savedoc.child(String.valueOf(doc)).child("id").setValue(String.valueOf(doc));
+                            savedoc.child(String.valueOf(doc)).child("name").setValue(user.getDisplayName());
+                            savedoc.child(String.valueOf(pat)).child("appointcount").setValue(1);
                         }else if(Objects.equals(occ, "Attendant")){
                             att=att+1;
                             datanapshot.child("somecount").child("countAtt").setValue(att);
-                            CaremedUser m = new CaremedUser(occ, att);
-                            ref.child(uid).setValue(m);
+                            ref.child(uid).child("occupation").setValue("Attendant");
+                            ref.child(uid).child("id").setValue(String.valueOf(att));
+                            ref.child(uid).child("profile").setValue("false");
+                            ref.child(uid).child("name").setValue(user.getDisplayName());
                         }else{
-                            Toast.makeText(getApplicationContext(),"Luch bhi nahi",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"No Occupation Selected",Toast.LENGTH_SHORT).show();
                         }
                     }
                     FirebaseAuth.getInstance().signOut();
@@ -177,6 +184,5 @@ public class Register extends AppCompatActivity {
             }
         });
         datanapshot.keepSynced(true);
-
     }
 }

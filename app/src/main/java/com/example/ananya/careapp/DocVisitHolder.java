@@ -17,10 +17,10 @@ public class DocVisitHolder extends RecyclerView.ViewHolder {
 
     public TextView uID;
     public TextView utime;
-    public EditText uprescription;
-    public EditText udoctor;
-    public EditText ucondition;
-    public EditText udisease;
+    public TextView uprescription;
+    public TextView udoctor;
+    public TextView ucondition;
+    public TextView udisease;
 
     public DocVisitHolder(View itemView) {
         super(itemView);

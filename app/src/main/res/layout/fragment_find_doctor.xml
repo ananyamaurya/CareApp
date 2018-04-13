@@ -1,13 +1,39 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#bcf3ff"
     tools:context="com.example.ananya.careapp.FindDoctor">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/fdcardview">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Filter By City"
+            android:textSize="18dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:id="@+id/fdcity"
+            android:layout_gravity="right"
+            android:entries="@array/Cities"/>
+    </android.support.v7.widget.CardView>
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#bcf3ff"
+            android:id="@+id/fddocrecycler"
+            android:layout_below="@+id/fdcardview">
 
-</FrameLayout>
+        </android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>

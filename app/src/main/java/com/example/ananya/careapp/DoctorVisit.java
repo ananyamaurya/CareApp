@@ -46,7 +46,7 @@ public class DoctorVisit extends Fragment {
             @Override
             public void onClick(View view) {
                 ref= myRef.child(pid.getText().toString()).child("medicalHistory");
-                mQuery = myRef.orderByChild("id");
+                mQuery = ref.orderByChild("utime");
                 mQuery.keepSynced(true);
 
                 mRecyclerView = (RecyclerView) docVisit.findViewById(R.id.medicalhistory_recyclerView);
@@ -57,7 +57,7 @@ public class DoctorVisit extends Fragment {
                         FirebaseRecyclerAdapter<DocVisitModel, DocVisitHolder>(
                                 DocVisitModel.class,
                                 R.layout.docvisitlist,
-                                DocVisitHolder.class,ref
+                                DocVisitHolder.class,mQuery
                                 ) {
                             /**
                              * Each time the data at the given Firebase location changes, this method will be called for each item that needs
@@ -79,8 +79,6 @@ public class DoctorVisit extends Fragment {
                                 viewHolder.ucondition.setText(model.getUcondition());
                                 viewHolder.uprescription.setText(model.getUprescription());
                             }
-
-
                         };
 
                 mRecyclerView.setAdapter(recyclerAdapter);
@@ -90,7 +88,4 @@ public class DoctorVisit extends Fragment {
 
         return docVisit;
     }
-
-
-
 }

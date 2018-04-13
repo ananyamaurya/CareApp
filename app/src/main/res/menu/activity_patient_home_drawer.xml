@@ -20,6 +20,10 @@
             android:id="@+id/patHospital"
             android:icon="@drawable/hostpitalblack"
             android:title="Find Hospital" />
+        <item
+            android:id="@+id/patmedicalHistory"
+            android:icon="@drawable/curriculum"
+            android:title="Medical History" />
     </group>
 
     <item android:title="Communicate">

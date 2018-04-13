@@ -127,7 +127,7 @@ public class CareHospital extends Fragment {
                 FirebaseRecyclerAdapter<HospitalModel, MyHolder>(
                         HospitalModel.class,
                         R.layout.hospital_list_layout,
-                        MyHolder.class, myRef
+                        MyHolder.class, mQuery
                 ) {
                     /**
                      * Each time the data at the given Firebase location changes, this method will be called for each item that needs
@@ -153,5 +153,4 @@ public class CareHospital extends Fragment {
         mRecyclerView.setAdapter(recyclerAdapter);
 
     }
-
 }
