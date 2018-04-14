@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -55,6 +56,8 @@ public class DoctorHome extends AppCompatActivity
         profile= headerView.findViewById(R.id.docprofilePic);
         TextView occu=headerView.findViewById(R.id.docdraweroccupation);
         String ss=((MyApp) getApplication()).getOccupation();
+        String sz=((MyApp) getApplication()).getId();
+        FirebaseMessaging.getInstance().subscribeToTopic(sz);
         Uri uri =user.getPhotoUrl();
         occu.setText(ss);
         Picasso.with(getApplicationContext()).load(uri).into(profile);

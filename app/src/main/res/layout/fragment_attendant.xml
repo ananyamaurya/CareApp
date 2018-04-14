@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/attendant1"
-        android:background="@drawable/roundimage"
+        android:background="#a4f0ff"
         android:orientation="vertical">
         <TextView
             android:id="@+id/textView1"
@@ -135,6 +135,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/attendant2"
+        android:background="#a4f0ff"
         android:orientation="vertical">
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"

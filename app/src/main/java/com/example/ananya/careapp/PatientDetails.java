@@ -40,18 +40,18 @@ public class PatientDetails extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View patDet = inflater.inflate(R.layout.fragment_patient_details, container, false);
-        bid=(Button) patDet.findViewById(R.id.patdeeid);
-        eid=(EditText) patDet.findViewById(R.id.patdebid);
+        bid=patDet.findViewById(R.id.patdebid);
+        eid=patDet.findViewById(R.id.patdeeid);
         blood=patDet.findViewById(R.id.patdeblood);
         urine=patDet.findViewById(R.id.patdeurine);
         databasePatients = FirebaseDatabase.getInstance().getReference("patients");
-        name=(EditText) patDet.findViewById(R.id.patdename);
-        gender=(EditText) patDet.findViewById(R.id.patdegender);
-        bg=(EditText) patDet.findViewById(R.id.patdebg);
-        age=(EditText) patDet.findViewById(R.id.patdeage);
-        city=(EditText) patDet.findViewById(R.id.patdecity);
-        weight=(EditText) patDet.findViewById(R.id.patdeweight);
-        mobile=(EditText) patDet.findViewById(R.id.patdemobile);
+        name=patDet.findViewById(R.id.patdename);
+        gender=patDet.findViewById(R.id.patdegender);
+        bg=patDet.findViewById(R.id.patdebg);
+        age=patDet.findViewById(R.id.patdeage);
+        city= patDet.findViewById(R.id.patdecity);
+        weight= patDet.findViewById(R.id.patdeweight);
+        mobile=patDet.findViewById(R.id.patdemobile);
         bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +71,7 @@ public class PatientDetails extends Fragment {
         return patDet;
     }
     public void getDetails(final String pdsid) {
-        DatabaseReference datanapshot = FirebaseDatabase.getInstance().getReference(ss);
+        DatabaseReference datanapshot = FirebaseDatabase.getInstance().getReference("patients");
         datanapshot.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#a4f0ff"
     tools:context="com.example.ananya.careapp.PatientQueues">
 
     <TextView
@@ -9,6 +10,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_margin="10dp"
+        android:textStyle="bold"
         android:text="Below Patients are Order according to Urgency"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

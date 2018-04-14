@@ -1,6 +1,7 @@
 package com.example.ananya.careapp;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,11 +19,13 @@ public class AppointmentHolder extends RecyclerView.ViewHolder {
     public TextView uname;
     public TextView udate;
     public TextView utime;
+    public Button ucal;
     public AppointmentHolder(View itemView) {
         super(itemView);
         uid = itemView.findViewById(R.id.apid);
         uname =  itemView.findViewById(R.id.apname);
         udate = itemView.findViewById(R.id.apdate);
         utime =itemView.findViewById(R.id.aptime);
+        ucal =itemView.findViewById(R.id.calenderadd);
     }
 }

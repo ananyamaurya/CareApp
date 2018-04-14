@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#a4f0ff"
     tools:context="com.example.ananya.careapp.Contactus">
 
     <!-- TODO: Update blank fragment layout -->
