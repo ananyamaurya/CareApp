@@ -15,11 +15,15 @@
         <item
             android:id="@+id/navviewpatient"
             android:icon="@drawable/curriculum"
-            android:title="Update Patient Details" />
+            android:title="View Patient Details" />
         <item
             android:id="@+id/navmedicalhistory"
             android:icon="@drawable/user"
             android:title="Madical History" />
+        <item
+            android:id="@+id/navviewreports"
+            android:icon="@drawable/user"
+            android:title="View Reports" />
     </group>
 
     <item android:title="Communicate">

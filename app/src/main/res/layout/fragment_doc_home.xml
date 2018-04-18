@@ -5,33 +5,7 @@
     android:background="#a4f0ff"
     tools:context="com.example.ananya.careapp.DocHome">
 
-    <!--<ViewFlipper
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoStart="true"
-        android:layout_alignParentTop="true"
-        android:flipInterval="1000"
-        android:id="@+id/dochomeFlipper">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/doc1" />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/doc"
-            />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/dc"
-            />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/dc3"
-            />
-    </ViewFlipper>-->
+
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="190dp"

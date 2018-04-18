@@ -38,14 +38,6 @@ public class AttendantHome extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -70,6 +62,11 @@ public class AttendantHome extends AppCompatActivity
         Picasso.with(getApplicationContext()).load(url).into(profile);
         nameText.setText(usersname);
         emailText.setText(usersemail);
+        FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+        AttHome addhome=new AttHome();
+        ft.replace(R.id.attendanthomeframe,addhome,"Home");
+        ft.addToBackStack("UpdateCondition");
+        ft.commit();
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,24 +128,43 @@ public class AttendantHome extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.navatthome) {
-            // Handle the camera action
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            AttHome addhome=new AttHome();
+            ft.replace(R.id.attendanthomeframe,addhome,"Home");
+            ft.addToBackStack("UpdateCondition");
+            ft.commit();
+
         } else if (id == R.id.navaddreport) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             AddReports addhome=new AddReports();
             ft.replace(R.id.attendanthomeframe,addhome,"Home");
+            ft.addToBackStack("Addreports");
             ft.commit();
 
         } else if (id == R.id.navviewpatient) {
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             PatientDetails addhome=new PatientDetails();
             ft.replace(R.id.attendanthomeframe,addhome,"Home");
+            ft.addToBackStack("Patient Details");
             ft.commit();
 
         } else if (id == R.id.navmedicalhistory) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            DoctorVisit addhome=new DoctorVisit();
+            ft.replace(R.id.attendanthomeframe,addhome,"Home");
+            ft.addToBackStack("View Medical History");
+            ft.commit();
 
         } else if (id == R.id.attenaboutus) {
 
         } else if (id == R.id.attencontactus) {
+
+        }else if (id == R.id.navviewreports) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            ViewReports addhome=new ViewReports();
+            ft.replace(R.id.attendanthomeframe,addhome,"Home");
+            ft.addToBackStack("ViewReports");
+            ft.commit();
 
         }
 

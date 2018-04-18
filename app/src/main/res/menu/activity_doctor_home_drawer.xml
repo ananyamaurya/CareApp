@@ -24,6 +24,10 @@
             android:id="@+id/doccondition"
             android:icon="@drawable/doctor"
             android:title="Update Condition" />
+        <item
+            android:id="@+id/vieewreports"
+            android:icon="@drawable/medicines"
+            android:title="View Reports" />
     </group>
 
     <item android:title="Communicate">

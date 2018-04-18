@@ -2,33 +2,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#bcf3ff"
     tools:context="com.example.ananya.careapp.FindDoctor">
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
+        app:cardBackgroundColor="#a4f0ff"
+        app:cardCornerRadius="10dp"
         android:id="@+id/fdcardview">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="Filter By City"
+            android:text="Filter By "
             android:textSize="18dp"
             android:layout_gravity="left"
             android:layout_marginLeft="10dp"/>
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:id="@+id/fdoption"
+            android:layout_gravity="right"
+            android:entries="@array/option"/>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="#a4f0ff"
+        app:cardCornerRadius="10dp"
+        android:id="@+id/fdcardcity">
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:id="@+id/fdcity"
+            android:layout_weight="0.5"
+            android:entries="@array/Cities"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="GO"
+            android:layout_weight="0.2"
+            android:background="@drawable/roundimage"
+            android:id="@+id/btncity"/>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="#a4f0ff"
+        app:cardCornerRadius="10dp"
+        android:id="@+id/fdcardcityspec">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:id="@+id/fdcity1"
             android:layout_gravity="right"
             android:entries="@array/Cities"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/fdhospital"
+            android:layout_weight="0.5"
+            android:layout_gravity="right"
+            />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GO"
+                android:layout_weight="0.2"
+                android:background="@drawable/roundimage"
+                android:id="@+id/cityhos"/>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="#a4f0ff"
+        app:cardCornerRadius="10dp"
+        android:id="@+id/fdcardcityhos">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
 
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:id="@+id/fdcity2"
+            android:layout_gravity="right"
+            android:entries="@array/Cities"/>
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:id="@+id/fdhspec"
+            android:layout_gravity="right"
+            android:entries="@array/doctortypes"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GO"
+                android:layout_weight="0.2"
+                android:background="@drawable/roundimage"
+                android:id="@+id/cityspec"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
     <!-- TODO: Update blank fragment layout -->
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="100dp"
             android:background="#bcf3ff"
             android:id="@+id/fddocrecycler"
             android:layout_below="@+id/fdcardview">

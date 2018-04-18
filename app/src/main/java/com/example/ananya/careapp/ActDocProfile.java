@@ -45,7 +45,7 @@ import java.util.UUID;
 
 public class ActDocProfile extends Activity {
     CircleImageView imageUpload;
-    EditText ename,eage,emobile;
+    EditText ename,eage,emobile,eaddress;
     Spinner egender,espec,ehos,ecity;
     Button pickimage,savepro;
     FirebaseDatabase database;
@@ -71,6 +71,7 @@ public class ActDocProfile extends Activity {
         eage = findViewById(R.id.actdocprofage);
         imageUpload =findViewById(R.id.actimageUpload);
         emobile = findViewById(R.id.actdocprofilemob);
+        eaddress = findViewById(R.id.actdocprofaddress);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -118,11 +119,12 @@ public class ActDocProfile extends Activity {
                 String Special = espec.getSelectedItem().toString();
                 String Hospital = ehos.getSelectedItem().toString();
                 String City = ecity.getSelectedItem().toString();
-                if (!TextUtils.isEmpty(Name) && !TextUtils.isEmpty(Age) && !TextUtils.isEmpty(Mobile)) {
+                String Address = eaddress.getText().toString();
+                if (!TextUtils.isEmpty(Name) && !TextUtils.isEmpty(Age) && !TextUtils.isEmpty(Mobile) && !TextUtils.isEmpty(Address)) {
                     if(City.equals("Select City")){
                         Toast.makeText(getApplicationContext(),"Select a City",Toast.LENGTH_SHORT).show();
                     }else{
-                        uploadImage(Name,Age,Mobile,Gender,Special,Hospital,City);
+                        uploadImage(Name,Age,Mobile,Gender,Special,Hospital,City,Address);
                     }
                 }
             }
@@ -155,7 +157,7 @@ public class ActDocProfile extends Activity {
             }
         }
     }
-    private void uploadImage(final String name, final String age, final String mobile, final String gender, final String spec, final String hos, final String city) {
+    private void uploadImage(final String name, final String age, final String mobile, final String gender, final String spec, final String hos, final String city, final String address) {
 
         if(filePath != null)
         {
@@ -202,6 +204,8 @@ public class ActDocProfile extends Activity {
                                                         prof.child(uid).child("name").setValue(name);
                                                         docref.child(id).child("cityspec").setValue(city+spec);
                                                         docref.child(id).child("cityhos").setValue(city+hos);
+                                                        docref.child(id).child("address").setValue(address);
+                                                        docref.child(id).child("photouri").setValue(filePath);
                                                     }
                                                 }
                                             });

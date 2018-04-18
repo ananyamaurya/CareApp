@@ -26,7 +26,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Upload Test Reports "
+                    android:text="View Test Reports "
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:layout_marginTop="10dp"/>
@@ -43,12 +43,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:hint="Enter Patient's ID"
-                            android:id="@+id/testrepeid"/>
+                            android:id="@+id/testviewid"/>
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:text="Fetch"
-                            android:id="@+id/testrepfetch"
+                            android:id="@+id/testrepviwe"
                             android:layout_marginLeft="10dp"
                             android:background="@drawable/roundimage"/>
 
@@ -93,7 +93,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="false"
-                                android:id="@+id/bloodavail"
+                                android:id="@+id/blcheck"
                                 android:textSize="15sp"
                                 />
                         </LinearLayout>
@@ -103,19 +103,14 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:gravity="center">
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:background="@drawable/roundimage"
-                                android:text="Select"
-                                android:id="@+id/blooodselect"/>
+
                             <Button
                                 android:layout_width="wrap_content"
                                 android:layout_height="40dp"
                                 android:layout_marginLeft="10dp"
                                 android:background="@drawable/roundimage"
-                                android:text="Upload"
-                                android:id="@+id/blooodupload"/>
+                                android:text="Open"
+                                android:id="@+id/blooodopen"/>
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -159,7 +154,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="false"
-                                android:id="@+id/urineavail"
+                                android:id="@+id/urcheck"
                                 android:textSize="15sp"
                                 />
                         </LinearLayout>
@@ -173,16 +168,10 @@
                             <Button
                                 android:layout_width="wrap_content"
                                 android:layout_height="40dp"
-                                android:background="@drawable/roundimage"
-                                android:text="Select"
-                                android:id="@+id/urineselect"/>
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
                                 android:layout_marginLeft="10dp"
                                 android:background="@drawable/roundimage"
-                                android:text="Upload"
-                                android:id="@+id/urineupload"/>
+                                android:text="Open"
+                                android:id="@+id/urineopen"/>
                         </LinearLayout>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>

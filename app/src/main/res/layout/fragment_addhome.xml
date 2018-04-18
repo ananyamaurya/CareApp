@@ -4,38 +4,26 @@
     android:layout_height="match_parent"
     android:background="#a4f0ff"
     tools:context="com.example.ananya.careapp.Addhome">
-    <ViewFlipper
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoStart="true"
-        android:layout_alignParentTop="true"
-        android:flipInterval="1000"
-        android:id="@+id/homeFlipper">
-        <ImageView
-            android:id="@+id/imageView2"
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="190dp"
+        android:id="@+id/relativePager3">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true" />
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicator3"
             android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/doc1" />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/doc"
-            />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/dc"
-            />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="185dip"
-            android:src="@drawable/dc3"
-            />
-    </ViewFlipper>
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
 <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="320dp"
-    android:layout_below="@id/homeFlipper"
+    android:layout_below="@id/relativePager3"
     android:layout_margin="10dp">
     <LinearLayout
         android:layout_width="match_parent"

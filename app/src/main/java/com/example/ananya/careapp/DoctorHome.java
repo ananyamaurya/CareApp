@@ -186,6 +186,12 @@ public class DoctorHome extends AppCompatActivity
             ft.commit();
         }else if (id == R.id.doctorHomeexit) {
             System.exit(0);
+        }else if (id == R.id.vieewreports) {
+            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
+            ViewReports contactus=new ViewReports();
+            ft.replace(R.id.dochomeframe,contactus,"Home");
+            ft.addToBackStack("ContactUs");
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

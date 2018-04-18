@@ -114,7 +114,6 @@ public class PatientDetails extends Fragment {
                     Toast.makeText(getActivity(), "Patient Doesn't Exist With this ID", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(getActivity(), "Error Occured", Toast.LENGTH_SHORT).show();

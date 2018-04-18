@@ -24,6 +24,10 @@
             android:id="@+id/patmedicalHistory"
             android:icon="@drawable/curriculum"
             android:title="Medical History" />
+        <item
+            android:id="@+id/patientViewReport"
+            android:icon="@drawable/healthreport"
+            android:title="View Reports" />
     </group>
 
     <item android:title="Communicate">

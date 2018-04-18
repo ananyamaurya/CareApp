@@ -21,6 +21,11 @@
         <item>Doctor</item>
         <item>Patient</item>
     </string-array>
+    <string-array name="option">
+        <item>City</item>
+        <item>City and Specialization</item>
+        <item>City and Hospital</item>
+    </string-array>
     <string-array name="Cities">
         <item>Select City</item>
         <item>Jalandhar</item>
